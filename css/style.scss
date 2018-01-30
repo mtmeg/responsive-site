@@ -1,0 +1,174 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック",
+YuGothic,
+"メイリオ",
+Verdana,
+"Hiragino Kaku Gothic ProN",
+Meiryo,
+sans-serif;
+
+// colors
+$baseColor: #fdfcf6;
+$subColor: #bea300;
+$keyColor: #14c0c9;
+$fontColor: #4c4c4c;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family: $baseFontFamily;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  background-color: $baseColor;
+}
+
+
+/* Align
+------------------------------------------------------------*/
+
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+h1 {
+  font-size: 3rem;
+}
+
+#photo {
+  background-image: url("../images/photo.jpg");
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Contents
+------------------------------------------------------------*/
+
+// Common Styles
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+}
+
+// text
+#text {
+  background-color: $baseColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+  }
+  h2 {
+    background-color: lighten($keyColor, 50%);
+    margin: 0 0 1.8em;
+    padding: 0 0 50px 0;
+    margin-bottom: 0;
+  }
+  .text-box {
+    @include flex(1);
+    margin: 10px 0;
+    padding: 0;
+    background-color: $keyColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+}
+
+#more {
+  padding-bottom: 0;
+  background-color: lighten($keyColor, 50%);
+  h2 {
+
+    margin-bottom: 50px;
+  }
+  .more-box {
+    width: 100%; // float: left;
+    height: 100%;
+  }
+  .button-readmore {
+    margin: auto auto 10px auto;
+    text-align: center;
+    padding: 5px 0;
+    width: 180px;
+    display: block;
+    color: #FFF;
+    font-weight: bold;
+    background-color: $keyColor;
+    @extend .abel;
+    @extend .uppercase;
+    @include border-radius(4px);
+    font-size: 1rem;
+    &:hover {
+      background-color: darken($keyColor, 10%);
+    }
+  }
+  &:hover {
+    .works-box-inner {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// PC
+@media (min-width: 769px) {
+  /* Base
+  ------------------------------------------------------------*/
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  } // text
+  #photo {
+    height: 500px;
+  }
+
+
+  #text {
+    .container {
+      @include flex-direction(row);
+    }
+    .text-box {
+      margin: 0 10px;
+    }
+  }
+
+  #more {
+    .button-readmore {
+      &:hover {
+        background-color: darken($keyColor, 10%);
+      }
+    }
+  }
+}
